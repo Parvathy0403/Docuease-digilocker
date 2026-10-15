@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Document Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">D</span><div><strong>DocuEase</strong><small>Smart Document Assistant</small></div></div>
+    <span class="demo-label">STUDENT DEMO</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR DOCUMENTS, SIMPLIFIED</p>
+        <h1>Good day, Student 👋</h1>
+        <p class="muted">Find your academic documents, check their status, and prepare them for sharing.</p>
+      </div>
+      <div class="welcome-icon">▤</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span class="stat-symbol">▤</span><p>Total documents</p><h2 id="totalCount">4</h2></article>
+      <article class="stat-card"><span class="stat-symbol green">✓</span><p>Available</p><h2 id="availableCount">3</h2></article>
+      <article class="stat-card"><span class="stat-symbol orange">◷</span><p>Pending</p><h2 id="pendingCount">1</h2></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>My academic documents</h2><p class="muted">Search and select a document to see its details.</p></div>
+        <label class="search-box">⌕ <input id="searchInput" type="search" placeholder="Search documents..." aria-label="Search documents"></label>
+      </div>
+      <div class="filters" aria-label="Filter documents">
+        <button class="filter active" data-filter="All">All documents</button>
+        <button class="filter" data-filter="Available">Available</button>
+        <button class="filter" data-filter="Pending">Pending</button>
+      </div>
+      <div id="documentList" class="document-list"></div>
+      <p id="emptyMessage" class="empty-message" hidden>No matching documents found. Try another search.</p>
+    </section>
+
+    <section class="two-columns">
+      <article class="panel detail-panel">
+        <p class="eyebrow">DOCUMENT DETAILS</p>
+        <h2 id="detailTitle">Select a document</h2>
+        <p id="detailDescription" class="muted">Choose a document from the list above to see its status and next steps.</p>
+        <div id="detailStatus" class="status-placeholder">No document selected</div>
+        <h3>What can I do next?</h3>
+        <ul id="nextSteps"><li>Select a document to view the suggested action.</li></ul>
+      </article>
+
+      <article class="panel share-panel">
+        <p class="eyebrow">SHARE A DOCUMENT</p>
+        <h2>Prepare for internship</h2>
+        <p class="muted">Complete the form to simulate a document-sharing request.</p>
+        <form id="shareForm" novalidate>
+          <label for="shareDocument">Choose document</label>
+          <select id="shareDocument" required>
+            <option value="">Select a document</option>
+          </select>
+          <label for="recipient">Recipient email</label>
+          <input id="recipient" type="email" placeholder="recruiter@example.com" required>
+          <label for="purpose">Purpose</label>
+          <select id="purpose" required>
+            <option value="">Choose purpose</option>
+            <option value="Internship application">Internship application</option>
+            <option value="Job application">Job application</option>
+            <option value="University admission">University admission</option>
+          </select>
+          <button class="primary-button" type="submit">Prepare sharing request →</button>
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+    <p class="disclaimer">Demo only: sample documents and sharing confirmations are not connected to the real DigiLocker service.</p>
+  </main>
+  <footer>DocuEase · Student document access demo</footer>
+  <script src="script.js"></script>
+</body>
+</html>
